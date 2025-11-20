@@ -1,0 +1,43 @@
+#content {
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+#header {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.team {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  text-align: center;
+  width: 200px;
+  height: 40px;
+}
+
+#home-team {
+  border-right: none;
+}
+
+#away-team {
+  border-left: none;
+}
+
+#details{
+    width: 600px;
+    height: fit-content;
+    border-top: none;
+    text-align: center;
+}
