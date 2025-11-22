@@ -12,16 +12,16 @@
         <div id="header" class="">
             <div class="circle header-item border">Home</div>
             <div id="center" class="">
-                <div id="home-team" class="header-item center-item border">France</div>
-                <div id="tournement" class="header-item center-item border">World cup</div>
-                <div id="away-team" class="header-item center-item border">Italy</div>
+                <div id="home-team-name-txt" class="header-item center-item border">France</div>
+                <div id="tournement-name-txt" class="header-item center-item border">World cup</div>
+                <div id="away-team-name-txt" class="header-item center-item border">Italy</div>
             </div>
             <div class="circle header-item border">Away</div>
         </div>
         <div id="details" class="border">
             <div id="home-score-logo" class="score-logo">
                 <div id="home-score">00</div>
-                <div id="home-logo"><img class="flag"
+                <div id="home-logo"><img id="home-team-flag-img" class="flag"
                         src="https://flagpedia.net/data/flags/emoji/twitter/256x256/it.png" alt=""></div>
             </div>
             <div id="home-records">
@@ -55,23 +55,18 @@
             </div>
             <div id="away-score-logo" class="score-logo">
                 <div id="away-score">00</div>
-                <div id="away-flag"><img class="flag"
+                <div id="away-flag"><img id="away-team-flag-img" class="flag"
                         src="https://flagpedia.net/data/flags/emoji/twitter/256x256/fr.png" alt=""></div>
             </div>
         </div>
         <div id="buttons">
             <div id="game" class="buttons-column">
-                <button id="new-game">New Game</button>
-                <button>Reset timer</button>
-                <button>Toggle period</button>
-            </div>
-            <div id="game" class="buttons-column">
-                <button id="new-game">New Game</button>
-                <button>Reset timer</button>
-                <button>Toggle period</button>
-            </div>
-            <div id="game" class="buttons-column">
-                <button id="new-game">New Game</button>
+                <input type="text" placeholder="Tournement name" id="tournement-name-input">
+                <input type="text" placeholder="Home team name" id="home-team-name-input">
+                <input type="text" placeholder="Home team flag url" id="home-team-flag-url-input">
+                <input type="text" placeholder="Away team name" id="away-team-name-input">
+                <input type="text" placeholder="Away team flag url" id="away-team-flag-url-input">
+                <button id="new-game" onclick="newGame()">New Game</button>
                 <button>Reset timer</button>
                 <button>Toggle period</button>
             </div>

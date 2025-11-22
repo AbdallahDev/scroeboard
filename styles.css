@@ -30,7 +30,7 @@
   height: 60px;
 }
 .center-item {
-  flex-grow: 1;
+    flex: 0 0 186px;
 }
 .center-item:nth-child(2) {
   height: 75px;
@@ -132,4 +132,9 @@ button {
   font-weight: bold;
   padding: 7px 37px;
   border-radius: 7px;
+}
+
+
+.buttons-element{
+    text-align: center;
 }
