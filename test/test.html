@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox No Space Example</title>
+    <style>
+    /* 1. Main Layout: Using flex to arrange the 5 main areas */
+    .header-container {
+        display: flex;
+        /*justify-content: space-between;  Pushes circles to the ends */
+        /* align-items: flex-end;          */
+        /* Aligns all items to the bottom of the container initially */
+        width: 500px;
+        margin: 50px auto; /* Center the whole component on the page */
+        /* padding: 0 10px; */
+    }
+
+    /* 2. Styling for all items */
+    .nav-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        color: #555;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        border: 1px solid #ccc;
+    }
+
+    /* 3. Styling the central rectangular items */
+    .center-nav {
+        display: flex;
+        flex-grow: 1; /* Allows the center group to take up most of the space */
+        justify-content: space-around;
+        align-items: stretch;
+        height: 40px; /* Defines the height of the main "bar" */
+        margin: 0 10px; /* Space between center bar and circles */
+    }
+
+    .rect {
+        flex-grow: 1;
+        border-radius: 0;
+        height: 100%;
+        margin: 0 -1px; /* Optional: Helps borders overlap like in the image */
+    }
+
+    .world-cup {
+        border-radius: 20px; /* Rounded corners for the "World Cup" item */
+        background-color: #e0e0e0;
+    }
+
+    /* 4. Styling the circular items */
+    .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; /* Makes the div a circle */
+        
+        /* Positioning: This is how they overlap the bar */
+        /* position: relative;  */
+        /* bottom: -5px;  */
+        /* Adjusts the circles down slightly over the bar */
+        background-color: #e0e0e0;
+    }
+</style>
+
+</head>
+
+<body>
+
+   <header class="header-container">
+    <div class="nav-item circle">Home</div>
+    <div class="center-nav">
+        <div class="nav-item rect">France</div>
+        <div class="nav-item rect world-cup">World Cup</div>
+        <div class="nav-item rect">Italy</div>
+    </div>
+    <div class="nav-item circle">Away</div>
+</header>
+
+
+</body>
+
+</html>

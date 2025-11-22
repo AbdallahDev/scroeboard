@@ -1,25 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Scoreboard</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="content">
-      <div id="header" class="">
-        <div id="home-team" class="team border">
-            <p>Home</p>
-            <p>France</p>
+        <div id="header" class="">
+            <div class="circle header-item border">Home</div>
+            <div id="center" class="">
+                <div id="home-team" class="header-item center-item border">France</div>
+                <div id="tournement" class="header-item center-item border">World cup</div>
+                <div id="away-team" class="header-item center-item border">Italy</div>
+            </div>
+            <div class="circle header-item border">Away</div>
         </div>
-        <div id="tournement" class="team border">World cup</div>
-        <div id="away-team" class="team border">Italy</div>
-      </div>
-      <div id="details" class="border">
-        <div><p id="period">1 Half</p></div>
-        <div><p id="time">45:00</p></div>
-      </div>
+        <div id="details" class="border">
+            <div id="home-score-logo" class="score-logo">
+                <div id="home-score">00</div>
+                <div id="home-logo"><img class="flag" src="https://flagpedia.net/data/flags/emoji/twitter/256x256/it.png"
+                        alt=""></div>
+            </div>
+            <div id="home-records">
+                <br>
+                <br>
+                <br>
+                <div id="home-records">00</div>
+                <div id="home-records">00</div>
+                <div id="home-records">00</div>
+                <div id="home-records">00</div>
+            </div>
+            <div id="titles-row">
+                <div id="period">1 Half</div>
+                <div id="time">45:00</div>
+                <br>
+                <div id="titles">
+                    <div>shots</div>
+                    <div>shots on target</div>
+                    <div>posession</div>
+                    <div>tackles</div>
+                </div>
+            </div>
+            <div id="away-records">
+                <br>
+                <br>
+                <br>
+                <div id="away-records">00</div>
+                <div id="away-records">00</div>
+                <div id="away-records">00</div>
+                <div id="away-records">00</div>
+            </div>
+            <div id="away-score-logo" class="score-logo">
+                <div id="away-score">00</div>
+                <div id="away-flag"><img class="flag" src="https://flagpedia.net/data/flags/emoji/twitter/256x256/fr.png"
+                        alt=""></div>
+            </div>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
