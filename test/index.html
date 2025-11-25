@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Input Enter Key</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="myInput"
+      placeholder="Type something and press Enter"
+    />
+
+    <script>
+      function myFunction() {
+        const inputValue = document.getElementById("myInput").value;
+        alert("You pressed Enter! Input value: " + inputValue);
+      }
+
+      const inputField = document.getElementById("myInput");
+
+      inputField.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Prevent default form submission if input is within a form
+          myFunction();
+        }
+      });
+    </script>
+  </body>
+</html>

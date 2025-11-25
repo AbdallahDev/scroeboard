@@ -1,77 +1,132 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Scoreboard</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
-</head>
+    <link rel="icon" type="image/x-icon" href="imgs/footbal-icon.png" />
+  </head>
 
-<body>
+  <body>
     <div id="content">
-        <div id="header" class="">
-            <div class="circle header-item border">Home</div>
-            <div id="center" class="">
-                <div id="home-team-name-txt" class="header-item center-item border">France</div>
-                <div id="tournement-name-txt" class="header-item center-item border">World cup</div>
-                <div id="away-team-name-txt" class="header-item center-item border">Italy</div>
-            </div>
-            <div class="circle header-item border">Away</div>
+      <div id="header" class="">
+        <div class="circle header-item border">Home</div>
+        <div id="center" class="">
+          <div id="home-team-name-txt" class="header-item center-item border">
+            France
+          </div>
+          <div id="tournement-name-txt" class="header-item center-item border">
+            World cup
+          </div>
+          <div id="away-team-name-txt" class="header-item center-item border">
+            Italy
+          </div>
         </div>
-        <div id="details" class="border">
-            <div id="home-score-logo" class="score-logo">
-                <div id="home-score">00</div>
-                <div id="home-logo"><img id="home-team-flag-img" class="flag"
-                        src="https://flagpedia.net/data/flags/emoji/twitter/256x256/it.png" alt=""></div>
-            </div>
-            <div id="home-records">
-                <br>
-                <br>
-                <br>
-                <div id="home-records">00</div>
-                <div id="home-records">00</div>
-                <div id="home-records">00</div>
-                <div id="home-records">00</div>
-            </div>
-            <div id="titles-row">
-                <div id="period">1 Half</div>
-                <div id="time">45:00</div>
-                <br>
-                <div id="titles">
-                    <div>shots</div>
-                    <div>shots on target</div>
-                    <div>posession</div>
-                    <div>tackles</div>
-                </div>
-            </div>
-            <div id="away-records">
-                <br>
-                <br>
-                <br>
-                <div id="away-records">00</div>
-                <div id="away-records">00</div>
-                <div id="away-records">00</div>
-                <div id="away-records">00</div>
-            </div>
-            <div id="away-score-logo" class="score-logo">
-                <div id="away-score">00</div>
-                <div id="away-flag"><img id="away-team-flag-img" class="flag"
-                        src="https://flagpedia.net/data/flags/emoji/twitter/256x256/fr.png" alt=""></div>
-            </div>
+        <div class="circle header-item border">Away</div>
+      </div>
+      <div id="details" class="border">
+        <div id="home-score-logo" class="score-logo">
+          <div id="home-score">00</div>
+          <div id="home-logo">
+            <img
+              id="home-team-flag-img"
+              class="flag"
+              src="https://flagpedia.net/data/flags/emoji/twitter/256x256/it.png"
+              alt=""
+            />
+          </div>
         </div>
-        <div id="buttons">
-            <div id="game" class="buttons-column">
-                <input type="text" placeholder="Tournement name" id="tournement-name-input">
-                <input type="text" placeholder="Home team name" id="home-team-name-input">
-                <input type="text" placeholder="Home team flag url" id="home-team-flag-url-input">
-                <input type="text" placeholder="Away team name" id="away-team-name-input">
-                <input type="text" placeholder="Away team flag url" id="away-team-flag-url-input">
-                <button id="new-game" onclick="newGame()">New Game</button>
-                <button>Reset timer</button>
-                <button>Toggle period</button>
-            </div>
+        <div id="home-records">
+          <br />
+          <br />
+          <br />
+          <div id="home-records">00</div>
+          <div id="home-records">00</div>
+          <div id="home-records">00</div>
+          <div id="home-records">00</div>
         </div>
-    </div>
-</body>
+        <div id="titles-row">
+          <div id="period">1 Half</div>
+          <div id="timer">45:00</div>
+          <br />
+          <div id="titles">
+            <div>shots</div>
+            <div>shots on target</div>
+            <div>posession</div>
+            <div>tackles</div>
+          </div>
+        </div>
+        <div id="away-records">
+          <br />
+          <br />
+          <br />
+          <div id="away-records">00</div>
+          <div id="away-records">00</div>
+          <div id="away-records">00</div>
+          <div id="away-records">00</div>
+        </div>
+        <div id="away-score-logo" class="score-logo">
+          <div id="away-score">00</div>
+          <div id="away-flag">
+            <img
+              id="away-team-flag-img"
+              class="flag"
+              src="https://flagpedia.net/data/flags/emoji/twitter/256x256/fr.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
 
+      <div id="buttons">
+        <div id="game-btns" class="buttons-column">
+          <h3>Game</h3>
+          <input
+            type="text"
+            placeholder="Tournement name"
+            id="tournement-name-input"
+          />
+          <input
+            type="text"
+            placeholder="Home team name"
+            id="home-team-name-input"
+          />
+          <input
+            type="text"
+            placeholder="Home team flag url"
+            id="home-team-flag-url-input"
+          />
+          <input
+            type="text"
+            placeholder="Away team name"
+            id="away-team-name-input"
+          />
+          <input
+            type="text"
+            placeholder="Away team flag url"
+            id="away-team-flag-url-input"
+          />
+          <button id="new-game" onclick="newGame()">New Game</button>
+          <input type="text" placeholder="Set period" id="period-value-input" />
+          <button onclick="setPeriod()">Set period</button>
+          <input
+            type="number"
+            id="timer-value-input"
+            placeholder="Timer value"
+          />
+          <button onclick="setTimer()">Set timer</button>
+        </div>
+        <div id="home-btns">
+          <h3>Home</h3>
+          <input type="number" id="home-score-input" placeholder="home score" />
+          <input type="number" id="home-shots-input" placeholder="home shots" />
+        </div>
+      </div>
+    </div>
+
+    <p id="note">
+      *To edit any value just enter it in the appropriate field then press enter
+    </p>
+
+    <script src="script.js"></script>
+  </body>
 </html>

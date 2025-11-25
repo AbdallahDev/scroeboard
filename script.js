@@ -27,3 +27,81 @@ function newGame() {
 
   //here i'll reset all the text inside the details div, like the score and ther records
 }
+
+//here i'll set the period by enabling the setPeriod function by clicking the Set period button
+function setPeriod() {
+  var periodEl = document.getElementById("period");
+  var periodInputValue = document.getElementById("period-value-input").value;
+
+  periodEl.textContent = periodInputValue;
+}
+
+//her i'll set ther timer and fire it when ever the user entered a time in the time textbox
+//the pressed the set timer button
+function setTimer() {
+  var timerInputValue = document.getElementById("timer-value-input").value;
+  var timerEl = document.getElementById("timer");
+  if (timerInputValue < 10) {
+    timerEl.textContent = "0" + timerInputValue + ":00";
+  } else {
+    timerEl.textContent = timerInputValue + ":00";
+  }
+
+  //her I'll set the left time to be calculated the set interval
+  var timeLeft = timerInputValue * 60;
+  // var timeLeft = timerInputValue;
+
+  var timer = setInterval(function () {
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      timerEl.style.backgroundColor = "red";
+      timerEl.style.color = "white";
+      timerEl.style.fontWeight = "bold";
+    } else {
+      //calculates the left minutes and seconds
+      var minutes = Math.floor(timeLeft / 60);
+      var seconds = timeLeft % 60;
+
+      //format minutes and seconds to show them with two digits ex. 45:00
+      var formatedMinutes = minutes < 10 ? "0" + minutes : minutes;
+      var formatedSeconds = seconds < 10 ? "0" + seconds : seconds;
+
+      //update the text in the timer div
+      document.getElementById("timer").textContent =
+        formatedMinutes + ":" + formatedSeconds;
+
+      // console.log(timeLeft, formatedMinutes, formatedSeconds);
+
+      timeLeft -= 1;
+    }
+  }, 1000);
+}
+
+//bellow the functions regard editing the home team data like the score and the shots
+//changes the home team score when the user press enter on the home score input element
+const homeScoreInputEl = document.getElementById("home-score-input");
+homeScoreInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") edit();
+});
+function edit() {
+  const homeScoreEl = document.getElementById("home-score");
+  var score = homeScoreInputEl.value;
+  if (score < 10) {
+    score = "0" + score;
+  }
+  homeScoreEl.textContent = score;
+  console.log(homeScoreEl.textContent);
+}
+
+//home shots
+const homeShotsInputEl = document.getElementById("home-shots-input");
+homeScoreInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") setHomeShotsValue();
+});
+function setHomeShotsValue() {
+  var shots =
+    homeShotsInputEl.value < 10
+      ? "0" + homeShotsInputEl.value
+      : homeShotsInputEl.value;
+  console.log(0);
+}
