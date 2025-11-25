@@ -90,18 +90,52 @@ function edit() {
     score = "0" + score;
   }
   homeScoreEl.textContent = score;
-  console.log(homeScoreEl.textContent);
 }
 
-//home shots
+//set home team shots
 const homeShotsInputEl = document.getElementById("home-shots-input");
-homeScoreInputEl.addEventListener("keydown", function (event) {
+homeShotsInputEl.addEventListener("keydown", function (event) {
   if (event.key == "Enter") setHomeShotsValue();
 });
 function setHomeShotsValue() {
+  // console.log(homeShotsInputEl.value)
   var shots =
     homeShotsInputEl.value < 10
       ? "0" + homeShotsInputEl.value
       : homeShotsInputEl.value;
-  console.log(0);
+  var homeShotsTxtEl = document.getElementById("home-shots");
+  homeShotsTxtEl.textContent = shots;
 }
+
+//set home team shots on target
+const homeShotsOnTargetInputEl = document.getElementById(
+  "home-shots-on-target-input"
+);
+homeShotsOnTargetInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") setHomeShotsOnTargetValue();
+});
+function setHomeShotsOnTargetValue() {
+  var shotsOnTarget =
+    homeShotsOnTargetInputEl.value >= 10
+      ? homeShotsOnTargetInputEl.value
+      : "0" + homeShotsOnTargetInputEl.value;
+
+  const homeShotsOnTargetTxtEl = document.getElementById(
+    "home-shots-on-target"
+  );
+  homeShotsOnTargetTxtEl.textContent = shotsOnTarget;
+}
+
+//set home team posession
+const homePosessionInputEl = document.getElementById("home-posession-input");
+homePosessionInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") setHomePosessionValue();
+});
+function setHomePosessionValue() {
+  var posession = homePosessionInputEl.value;
+  // posession = posession < 10 ? "0" + posession : posession;
+
+  const homePosessionTxtEl = document.getElementById("home-posession");
+  homePosessionTxtEl.textContent = posession + "%";
+}
+
