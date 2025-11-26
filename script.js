@@ -1,41 +1,28 @@
-function newGame() {
-  var tournementNameValue = document.getElementById(
-    "tournement-name-input"
-  ).value;
-  var tournementNameTextEl = document.getElementById("tournement-name-txt");
-  tournementNameTextEl.textContent = tournementNameValue;
+//here I'll set the tournement title when the user press enter on the tournement name input
+const tournementNameInputEl = document.getElementById("tournement-name-input");
+tournementNameInputEl.addEventListener("keydown", function (event) {
+  // if (event.key == "Enter") {
+  //   setTournementName();
+  // }
+  event.key == "Enter" && setTournementName();
+});
+function setTournementName() {
+  console.log(tournementNameInputEl.value);
 
-  var homeTeamNameValue = document.getElementById("home-team-name-input").value;
-  var homeTeamNameTxtEl = document.getElementById("home-team-name-txt");
-  homeTeamNameTxtEl.textContent = homeTeamNameValue;
-
-  var homeTeamFlagUrlValue = document.getElementById(
-    "home-team-flag-url-input"
-  ).value;
-  var homeTeamFlagImgEl = document.getElementById("home-team-flag-img");
-  homeTeamFlagImgEl.src = homeTeamFlagUrlValue;
-
-  var awayTeamNameValue = document.getElementById("away-team-name-input").value;
-  var awayTeamNameTxtEl = document.getElementById("away-team-name-txt");
-  awayTeamNameTxtEl.textContent = awayTeamNameValue;
-
-  var awayTeamFlagUrlValue = document.getElementById(
-    "away-team-flag-url-input"
-  ).value;
-  var awayTeamFlagImgEl = document.getElementById("away-team-flag-img");
-  awayTeamFlagImgEl.src = awayTeamFlagUrlValue;
-
-  //here i'll reset all the text inside the details div, like the score and ther records
+  var txt = tournementNameInputEl.value;
+  const tournementNameTxtEl = document.getElementById("tournement-name-txt");
+  tournementNameTxtEl.textContent = txt;
 }
-
-//here i'll set the period by enabling the setPeriod function by clicking the Set period button
+//here i'll set the period by when the user enter it the set period input element then pressing enter
+const periodInputEl = document.getElementById("period-value-input");
+periodInputEl.addEventListener("keydown", function (e) {
+  e.key == "Enter" && setPeriod();
+});
 function setPeriod() {
-  var periodEl = document.getElementById("period");
-  var periodInputValue = document.getElementById("period-value-input").value;
-
-  periodEl.textContent = periodInputValue;
+  var period = periodInputEl.value;
+  const periodTxtEl = document.getElementById("period");
+  periodTxtEl.textContent = period;
 }
-
 //her i'll set ther timer and fire it when ever the user entered a time in the time textbox
 //the pressed the set timer button
 function setTimer() {
@@ -79,11 +66,35 @@ function setTimer() {
 
 //bellow the functions regard editing the home team data like the score and the shots
 //changes the home team score when the user press enter on the home score input element
+//--------------------------------------------------------------------------------
+//sets the home team name by entering the name in the home team name input element then pressing enter
+const homeTeamNameInputEl = document.getElementById("home-team-name-input");
+homeTeamNameInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") setHomeTeamName();
+});
+function setHomeTeamName() {
+  homeTeamName = homeTeamNameInputEl.value;
+  const homeTeamNameTxtEl = document.getElementById("home-team-name-txt");
+  homeTeamNameTxtEl.textContent = homeTeamName;
+}
+//sets the home team logo or flag
+const homeTeamFlagUrlInputEl = document.getElementById(
+  "home-team-flag-url-input"
+);
+homeTeamFlagUrlInputEl.addEventListener("keydown", function (e) {
+  e.key == "Enter" && setHomeTeamFlagUrl();
+});
+function setHomeTeamFlagUrl() {
+  var url = homeTeamFlagUrlInputEl.value;
+  const homeTeamLogo = document.getElementById("home-team-flag-img");
+  homeTeamLogo.src = url;
+}
+//sets the home team score
 const homeScoreInputEl = document.getElementById("home-score-input");
 homeScoreInputEl.addEventListener("keydown", function (event) {
-  if (event.key == "Enter") edit();
+  event.key == "Enter" && setHomeScoreVAlue();
 });
-function edit() {
+function setHomeScoreVAlue() {
   const homeScoreEl = document.getElementById("home-score");
   var score = homeScoreInputEl.value;
   if (score < 10) {
@@ -91,7 +102,6 @@ function edit() {
   }
   homeScoreEl.textContent = score;
 }
-
 //set home team shots
 const homeShotsInputEl = document.getElementById("home-shots-input");
 homeShotsInputEl.addEventListener("keydown", function (event) {
@@ -106,7 +116,6 @@ function setHomeShotsValue() {
   var homeShotsTxtEl = document.getElementById("home-shots");
   homeShotsTxtEl.textContent = shots;
 }
-
 //set home team shots on target
 const homeShotsOnTargetInputEl = document.getElementById(
   "home-shots-on-target-input"
@@ -125,7 +134,6 @@ function setHomeShotsOnTargetValue() {
   );
   homeShotsOnTargetTxtEl.textContent = shotsOnTarget;
 }
-
 //set home team posession
 const homePosessionInputEl = document.getElementById("home-posession-input");
 homePosessionInputEl.addEventListener("keydown", function (event) {
@@ -139,3 +147,74 @@ function setHomePosessionValue() {
   homePosessionTxtEl.textContent = posession + "%";
 }
 
+//-------------------------------------------------------------
+//bellow the functions regard editing the away team data like the score and the shots
+//changes the away team score when the user press enter on the away score input element
+//-------------------------------------------------------------
+//sets the away team name
+const awayTeamNameInputEl = document.getElementById("away-team-name-input");
+awayTeamNameInputEl.addEventListener("keydown", function (e) {
+  e.key == "Enter" && setAwayTeamName();
+});
+function setAwayTeamName() {
+  var name = awayTeamNameInputEl.value;
+  const AwayTeamNameTxtEl = document.getElementById("away-team-name-txt");
+  AwayTeamNameTxtEl.textContent = name;
+}
+//sets the away team score
+const awayScoreInputEl = document.getElementById("away-score-input");
+awayScoreInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") setHomeScoreVAlue();
+});
+function setHomeScoreVAlue() {
+  const awayScoreEl = document.getElementById("away-score");
+  var score = awayScoreInputEl.value;
+  if (score < 10) {
+    score = "0" + score;
+  }
+  awayScoreEl.textContent = score;
+}
+//set away team shots
+const awayShotsInputEl = document.getElementById("away-shots-input");
+awayShotsInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") setAwayShotsValue();
+});
+function setAwayShotsValue() {
+  // console.log(awayShotsInputEl.value)
+  var shots =
+    awayShotsInputEl.value < 10
+      ? "0" + awayShotsInputEl.value
+      : awayShotsInputEl.value;
+  var awayShotsTxtEl = document.getElementById("away-shots");
+  awayShotsTxtEl.textContent = shots;
+}
+//set away team shots on target
+const awayShotsOnTargetInputEl = document.getElementById(
+  "away-shots-on-target-input"
+);
+awayShotsOnTargetInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") setAwayShotsOnTargetValue();
+});
+function setAwayShotsOnTargetValue() {
+  var shotsOnTarget =
+    awayShotsOnTargetInputEl.value >= 10
+      ? awayShotsOnTargetInputEl.value
+      : "0" + awayShotsOnTargetInputEl.value;
+
+  const awayShotsOnTargetTxtEl = document.getElementById(
+    "away-shots-on-target"
+  );
+  awayShotsOnTargetTxtEl.textContent = shotsOnTarget;
+}
+//set away team posession
+const awayPosessionInputEl = document.getElementById("away-posession-input");
+awayPosessionInputEl.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") setAwayPosessionValue();
+});
+function setAwayPosessionValue() {
+  var posession = awayPosessionInputEl.value;
+  // posession = posession < 10 ? "0" + posession : posession;
+
+  const awayPosessionTxtEl = document.getElementById("away-posession");
+  awayPosessionTxtEl.textContent = posession + "%";
+}

@@ -53,13 +53,15 @@
             <div>posession</div>
           </div>
         </div>
+
+        <!--Away records-->
         <div id="away-records">
           <br />
           <br />
           <br />
-          <div id="away-records">00</div>
-          <div id="away-records">00</div>
-          <div id="away-records">00</div>
+          <div id="away-shots">00</div>
+          <div id="away-shots-on-target">00</div>
+          <div id="away-posession">0%</div>
         </div>
         <div id="away-score-logo" class="score-logo">
           <div id="away-score">00</div>
@@ -74,7 +76,9 @@
         </div>
       </div>
 
+      <!--Editing data Button-->
       <div id="buttons">
+        <!--Game inputs-->
         <div id="game-btns" class="buttons-column">
           <h3>Game</h3>
           <input
@@ -82,6 +86,17 @@
             placeholder="Tournement name"
             id="tournement-name-input"
           />
+          <input type="text" placeholder="Set period" id="period-value-input" />
+          <input
+            type="number"
+            id="timer-value-input"
+            placeholder="Timer value"
+          />
+        </div>
+
+        <!--Home buttons-->
+        <div id="home-btns">
+          <h3>Home</h3>
           <input
             type="text"
             placeholder="Home team name"
@@ -89,31 +104,9 @@
           />
           <input
             type="text"
-            placeholder="Home team flag url"
+            placeholder="Home team flag/logo url"
             id="home-team-flag-url-input"
           />
-          <input
-            type="text"
-            placeholder="Away team name"
-            id="away-team-name-input"
-          />
-          <input
-            type="text"
-            placeholder="Away team flag url"
-            id="away-team-flag-url-input"
-          />
-          <button id="new-game" onclick="newGame()">New Game</button>
-          <input type="text" placeholder="Set period" id="period-value-input" />
-          <button onclick="setPeriod()">Set period</button>
-          <input
-            type="number"
-            id="timer-value-input"
-            placeholder="Timer value"
-          />
-          <button onclick="setTimer()">Set timer</button>
-        </div>
-        <div id="home-btns">
-          <h3>Home</h3>
           <input
             type="number"
             id="home-score-input"
@@ -133,6 +126,41 @@
             type="number"
             id="home-posession-input"
             placeholder="home team posession"
+          />
+        </div>
+
+        <!--Away buttons-->
+        <div id="home-btns">
+          <h3>Away</h3>
+          <input
+            type="text"
+            placeholder="Away team name"
+            id="away-team-name-input"
+          />
+          <input
+            type="text"
+            placeholder="Away team flag url"
+            id="away-team-flag-url-input"
+          />
+          <input
+            type="number"
+            id="away-score-input"
+            placeholder="away team score"
+          />
+          <input
+            type="number"
+            id="away-shots-input"
+            placeholder="away team shots"
+          />
+          <input
+            type="number"
+            id="away-shots-on-target-input"
+            placeholder="away team shots on target"
+          />
+          <input
+            type="number"
+            id="away-posession-input"
+            placeholder="away team posession"
           />
         </div>
       </div>
