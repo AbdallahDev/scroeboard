@@ -24,42 +24,31 @@ function setPeriod() {
   periodTxtEl.textContent = period;
 }
 //her i'll set ther timer and fire it when ever the user entered a time in the time textbox
-//the pressed the set timer button
+//then press enter
+const timerInputEl = document.getElementById("timer-value-input");
+timerInputEl.addEventListener("keydown", function (e) {
+  e.key == "Enter" && setTimer();
+});
 function setTimer() {
-  var timerInputValue = document.getElementById("timer-value-input").value;
-  var timerEl = document.getElementById("timer");
-  if (timerInputValue < 10) {
-    timerEl.textContent = "0" + timerInputValue + ":00";
-  } else {
-    timerEl.textContent = timerInputValue + ":00";
-  }
-
-  //her I'll set the left time to be calculated the set interval
-  var timeLeft = timerInputValue * 60;
-  // var timeLeft = timerInputValue;
-
+  //here i'll convert the time inserted in the timer element from minutes to seconds
+  var timerValue = timerInputEl.value * 60;
+  var timerTxtEl = document.getElementById("timer-txt");
   var timer = setInterval(function () {
-    if (timeLeft < 0) {
+    if (timerValue < 0) {
       clearInterval(timer);
-      timerEl.style.backgroundColor = "red";
-      timerEl.style.color = "white";
-      timerEl.style.fontWeight = "bold";
+      timerTxtEl.style.backgroundColor = "red";
+      timerTxtEl.style.color = "white";
+      timerTxtEl.style.fontWeight = "bold";
     } else {
       //calculates the left minutes and seconds
-      var minutes = Math.floor(timeLeft / 60);
-      var seconds = timeLeft % 60;
-
+      var minutes = Math.floor(timerValue / 60);
+      var seconds = timerValue % 60;
       //format minutes and seconds to show them with two digits ex. 45:00
       var formatedMinutes = minutes < 10 ? "0" + minutes : minutes;
       var formatedSeconds = seconds < 10 ? "0" + seconds : seconds;
-
       //update the text in the timer div
-      document.getElementById("timer").textContent =
-        formatedMinutes + ":" + formatedSeconds;
-
-      // console.log(timeLeft, formatedMinutes, formatedSeconds);
-
-      timeLeft -= 1;
+      timerTxtEl.textContent = formatedMinutes + ":" + formatedSeconds;
+      timerValue -= 1;
     }
   }, 1000);
 }
@@ -161,18 +150,28 @@ function setAwayTeamName() {
   const AwayTeamNameTxtEl = document.getElementById("away-team-name-txt");
   AwayTeamNameTxtEl.textContent = name;
 }
+//sets the away team flag/logo img url
+const awayTeamImgUrlInput = document.getElementById("away-team-flag-url-input");
+awayTeamImgUrlInput.addEventListener("keydown", function (e) {
+  e.key == "Enter" && setAwayTeamImgUrl();
+});
+function setAwayTeamImgUrl() {
+  var imgUrl = awayTeamImgUrlInput.value;
+  const awayTeamImg = document.getElementById("away-team-flag-img");
+  awayTeamImg.src = imgUrl;
+  console.log(awayTeamImg.src);
+}
 //sets the away team score
 const awayScoreInputEl = document.getElementById("away-score-input");
 awayScoreInputEl.addEventListener("keydown", function (event) {
-  if (event.key == "Enter") setHomeScoreVAlue();
+  if (event.key == "Enter") setAwayScoreValue();
 });
-function setHomeScoreVAlue() {
-  const awayScoreEl = document.getElementById("away-score");
+function setAwayScoreValue() {
   var score = awayScoreInputEl.value;
-  if (score < 10) {
-    score = "0" + score;
-  }
-  awayScoreEl.textContent = score;
+  if (score < 10) score = "0" + score;
+  const awayScoreTxtEl = document.getElementById("away-score");
+  awayScoreTxtEl.textContent = score
+  console.log(score)
 }
 //set away team shots
 const awayShotsInputEl = document.getElementById("away-shots-input");

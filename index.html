@@ -45,7 +45,7 @@
         </div>
         <div id="titles-row">
           <div id="period">1 Half</div>
-          <div id="timer">45:00</div>
+          <div id="timer-txt">45:00</div>
           <br />
           <div id="titles">
             <div>shots</div>
@@ -64,7 +64,7 @@
           <div id="away-posession">0%</div>
         </div>
         <div id="away-score-logo" class="score-logo">
-          <div id="away-score">00</div>
+          <div id="away-score" tabindex="">00</div>
           <div id="away-flag">
             <img
               id="away-team-flag-img"
@@ -76,76 +76,101 @@
         </div>
       </div>
 
-      <!--Editing data Button-->
-      <div id="buttons">
+      <!--Editing data inputs-->
+      <div id="inputs">
         <!--Game inputs-->
-        <div id="game-btns" class="buttons-column">
+        <div id="game-inputs" class="buttons-column">
           <h3>Game</h3>
+          <!-- tournement-name-input -->
           <input
             type="text"
             placeholder="Tournement name"
             id="tournement-name-input"
+            tabindex="1"
           />
-          <input type="text" placeholder="Set period" id="period-value-input" />
+          <!-- set period-value-input -->
+          <input
+            type="text"
+            placeholder="Set period"
+            id="period-value-input"
+            tabindex="2"
+          />
           <input
             type="number"
             id="timer-value-input"
             placeholder="Timer value"
+            tabindex="3"
           />
         </div>
 
-        <!--Home buttons-->
-        <div id="home-btns">
+        <!--Home inputs-->
+        <div id="home-inputs">
           <h3>Home</h3>
+          <!-- home-team-name input -->
           <input
             type="text"
             placeholder="Home team name"
             id="home-team-name-input"
+            tabindex="4"
           />
+          <!-- home-team-flag-url-input -->
           <input
             type="text"
             placeholder="Home team flag/logo url"
             id="home-team-flag-url-input"
+            tabindex="6"
           />
+          <!-- home team score -->
           <input
             type="number"
             id="home-score-input"
             placeholder="home team score"
+            tabindex="8"
           />
+          <!-- home team shots -->
           <input
             type="number"
             id="home-shots-input"
             placeholder="home team shots"
+            tabindex="10"
           />
           <input
             type="number"
             id="home-shots-on-target-input"
             placeholder="home team shots on target"
+            tabindex="12"
           />
           <input
             type="number"
             id="home-posession-input"
             placeholder="home team posession"
+            tabindex="14"
           />
         </div>
 
-        <!--Away buttons-->
-        <div id="home-btns">
+        <!--Away inputs-->
+        <div id="away-inputs">
           <h3>Away</h3>
+          <!-- Away team name input -->
           <input
             type="text"
             placeholder="Away team name"
             id="away-team-name-input"
+            tabindex="5"
           />
+          <!-- Away team flag/logo url -->
           <input
             type="text"
-            placeholder="Away team flag url"
+            placeholder="Away team flag/logo url"
             id="away-team-flag-url-input"
+            tabindex="7"
           />
+          <!-- Away team score input -->
           <input
             type="number"
             id="away-score-input"
             placeholder="away team score"
+            tabindex="9"
           />
           <input
             type="number"
